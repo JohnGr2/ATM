@@ -17,6 +17,7 @@ void gotoxy(int x,int y)
 void  menu(){
     
     cout << "Probando que todo esté funcionando de maravilla!";
+    cout << "Todo bien por estos lados!";
     cout << "\tBienvenido al ATM  " << endl << endl << endl;
     cout << "Ingrese una de las siguientes opciones: " << endl << endl;
     cout << "1. Depositar " << endl << "2. Retirar" << endl << "3. Mostrar balance" << endl << "4. Salir" << endl;

@@ -1,4 +1,4 @@
-/*Programa ATM que registra transacciones de depósito, retiro y balance en una cuenta*/
+/*Programa ATM que registra transacciones de depÃ³sito, retiro y balance en una cuenta*/
 #include <iostream>
 #include <stdlib.h>
 #include <windows.h>
@@ -15,7 +15,8 @@ void gotoxy(int x,int y)
  }
 
 void  menu(){
-
+    
+    cout << "Probando que todo estÃ© funcionando de maravilla!";
     cout << "\tBienvenido al ATM  " << endl << endl << endl;
     cout << "Ingrese una de las siguientes opciones: " << endl << endl;
     cout << "1. Depositar " << endl << "2. Retirar" << endl << "3. Mostrar balance" << endl << "4. Salir" << endl;
@@ -27,7 +28,7 @@ void login()
 
     cout << "-------------------------" << endl;
     cout << "Usuario: " << endl;
-    cout << "Contraseña: " << endl;
+    cout << "ContraseÃ±a: " << endl;
     cout << "-------------------------" << endl;
     gotoxy(10,1);
     cin >> user;
@@ -41,7 +42,7 @@ void login()
     }
     else
     {
-        cout<<"Nombre o contraseña incorrectos" << endl;
+        cout<<"Nombre o contraseÃ±a incorrectos" << endl;
         login();
     }
 }

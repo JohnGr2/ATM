@@ -7,11 +7,29 @@ using namespace std;
 
 COORD coord={0,0};
 
+
 void gotoxy(int x,int y)
  {
    coord.X=x;
    coord.Y=y;
    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+ }
+
+ void pass(){
+    string pass ="";
+    char ch;
+    cout << "Enter pass\n";
+    ch = _getch();
+   while(ch != 13){//character 13 is enter
+      pass.push_back(ch);
+      cout << '*';
+      ch = _getch();
+   }
+   if(pass == "123"){
+      cout << "\nAccess granted :P\n";
+   }else{
+      cout << "\nAccess aborted...\n";
+   }
  }
 
 void  menu(){
@@ -25,9 +43,10 @@ void login()
 {
     string user, pass;
 
-    cout << "-------------------------" << endl;
-    cout << "Usuario: " << endl;
-    cout << "Contraseña: " << endl;
+    system("CLS");
+    cout << "-----------------------------" << endl;
+    cout << "Usuario:        " << endl;
+    cout << "Contrasena:     " << endl;
     cout << "-------------------------" << endl;
     gotoxy(10,1);
     cin >> user;
@@ -37,6 +56,7 @@ void login()
 
     if(user == "john" && pass == "123")
     {
+        system("CLS");
         menu();
     }
     else
@@ -49,8 +69,8 @@ void login()
 
 int main()
 {
-
-    int dep, ret, opcion;
+    login();
+   /* int dep, ret, opcion;
     int balance = 0;
 
     login();
@@ -114,7 +134,7 @@ int main()
         }
 
     }
-    while(opcion != 4);
+    while(opcion != 4);*/
 
     return 0;
 }

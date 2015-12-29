@@ -2,38 +2,23 @@
 #include <iostream>
 #include <stdlib.h>
 #include <windows.h>
+#include <conio.h>
 
 using namespace std;
 
-COORD coord={0,0};
+COORD coord = {0, 0};
 
 
-void gotoxy(int x,int y)
- {
-   coord.X=x;
-   coord.Y=y;
-   SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
- }
+void gotoxy(int x, int y)
+{
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
 
- void pass(){
-    string pass ="";
-    char ch;
-    cout << "Enter pass\n";
-    ch = _getch();
-   while(ch != 13){//character 13 is enter
-      pass.push_back(ch);
-      cout << '*';
-      ch = _getch();
-   }
-   if(pass == "123"){
-      cout << "\nAccess granted :P\n";
-   }else{
-      cout << "\nAccess aborted...\n";
-   }
- }
 
-void  menu(){
-   
+void  menu() {
+
     cout << "\tBienvenido al ATM  " << endl << endl << endl;
     cout << "Ingrese una de las siguientes opciones: " << endl << endl;
     cout << "1. Depositar " << endl << "2. Retirar" << endl << "3. Mostrar balance" << endl << "4. Salir" << endl;
@@ -41,27 +26,33 @@ void  menu(){
 
 void login()
 {
-    string user, pass;
+    string user;
+    string pass = "";
+    char ch;
 
     system("CLS");
     cout << "-----------------------------" << endl;
     cout << "Usuario:        " << endl;
     cout << "Contrasena:     " << endl;
     cout << "-------------------------" << endl;
-    gotoxy(10,1);
+    gotoxy(10, 1);
     cin >> user;
-    gotoxy(12,2);
-    cin >> pass;
+    gotoxy(12, 2);
+    ch = _getch();
+    while (ch != 13) { //character 13 is enter
+        pass.push_back(ch);
+        cout << '*';
+        ch = _getch();
+    }
 
-
-    if(user == "john" && pass == "123")
+    if (user == "john" && pass == "123")
     {
         system("CLS");
         menu();
     }
     else
     {
-        cout<<"Nombre o contraseña incorrectos" << endl;
+        cout << "Nombre o contraseña incorrectos" << endl;
         login();
     }
 }
@@ -69,8 +60,8 @@ void login()
 
 int main()
 {
-    login();
-   /* int dep, ret, opcion;
+
+    int dep, ret, opcion;
     int balance = 0;
 
     login();
@@ -84,10 +75,10 @@ int main()
         {
 
         case 1 :
-            cout <<"Ingrese cantidad a depositar: ";
+            cout << "Ingrese cantidad a depositar: ";
             cin >> dep;
 
-            if(dep <= 0)
+            if (dep <= 0)
             {
                 cout << "Error, No puede agregar cantidad menor a 0" << endl;
             }
@@ -105,7 +96,7 @@ int main()
             cout << "Ingrese cantidad a retirar: ";
             cin >> ret;
 
-            if( ret >= balance)
+            if ( ret >= balance)
             {
 
                 cout << "Error, No puede retirar una cantidad mayor a la de su balance actual" << endl;
@@ -134,7 +125,7 @@ int main()
         }
 
     }
-    while(opcion != 4);*/
+    while (opcion != 4);
 
     return 0;
 }
